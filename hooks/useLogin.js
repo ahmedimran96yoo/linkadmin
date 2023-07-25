@@ -42,21 +42,28 @@ function useLogin() {
       callbackUrl: `${window.location.origin}`,
       redirect: false,
     });
-
     const { ok, error } = res;
-
     if (ok) {
       console.log(res);
       // toast.success("Signed in Successfully");
       // await router.push("/");
       router.reload();
     }
-
     if (error) {
       console.log(res);
       toast.error(error);
       // toast.error("Something went wrong");
     }
+
+    // await signIn("credentials", {
+    //   ...values,
+    //   callbackUrl: `${window.location.origin}`,
+    //   redirect: false,
+    // }).then(({ ok, error }) => {
+    //   // console.log(data);
+    //   ok && router.reload();
+    //   error && toast.error("Something went wrong");
+    // });
   };
 
   return { loginUser };
