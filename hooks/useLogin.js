@@ -39,7 +39,7 @@ function useLogin() {
   const loginUser = async (values, formik) => {
     const res = await signIn("credentials", {
       ...values,
-      // callbackUrl: `${window.location.origin}/`,
+      callbackUrl: `${window.location.origin}`,
       redirect: false,
     });
 
@@ -47,12 +47,11 @@ function useLogin() {
 
     if (ok) {
       console.log(res);
-      toast.success("Signed in Successfully");
-      await router.push("/");
+      // toast.success("Signed in Successfully");
+      // await router.push("/");
+      router.reload();
     }
-    // else {
-    //   toast.error("Something went wrong");
-    // }
+
     if (error) {
       console.log(res);
       toast.error(error);
